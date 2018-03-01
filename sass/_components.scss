@@ -115,6 +115,34 @@
   list-style: none;
   margin-top: 3.5rem;
   &__item {
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  &__item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    transform: scaleY(0);
+    transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
+      background-color 0.1s;
+    background-color: var(--color-primary);
+  }
+
+  &__item:hover::before,
+  &__item--active::before {
+    transform: scaleY(1);
+    width: 100%;
+  }
+
+  &__item:active::before {
+    background-color: var(--color-primary-light);
   }
 
   &__link:link,
@@ -124,7 +152,8 @@
     text-transform: uppercase;
     display: block;
     padding: 1.5rem 3rem;
-
+    z-index: 10;
+    position: relative;
     display: flex;
     align-items: center;
   }
