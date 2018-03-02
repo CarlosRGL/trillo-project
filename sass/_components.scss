@@ -189,7 +189,7 @@
 .overview {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid var(--color-grey-light-2);
+  border-bottom: var(--line);
   &__heading {
     font-size: 2.25rem;
     font-weight: 300;
@@ -283,3 +283,13 @@
     transform: scale(1);
   }
 }
+
+//paragraph
+
+.paragraph:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+//paragraph
+
+//paragraph
